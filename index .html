@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#fed488",
+                    "primary-container": "#5d0e1a",
+                    "on-primary-fixed": "#40000b",
+                    "inverse-surface": "#313030",
+                    "outline-variant": "#dbc0c0",
+                    "tertiary": "#181a17",
+                    "surface-container": "#f0eded",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary-container": "#959592",
+                    "tertiary-fixed-dim": "#c7c7c3",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "primary-fixed": "#ffdada",
+                    "secondary-fixed": "#ffdea5",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed": "#e3e2df",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-highest": "#e5e2e1",
+                    "secondary-fixed-dim": "#e9c176",
+                    "outline": "#887272",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "secondary": "#775a19",
+                    "background": "#fcf9f8",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-container": "#785a1a",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#464744",
+                    "primary": "#3c000a",
+                    "surface": "#fcf9f8",
+                    "surface-variant": "#e5e2e1",
+                    "on-background": "#1c1b1b",
+                    "surface-bright": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#2d2e2c",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#9d3f47",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#e2747a",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#554242",
+                    "on-secondary-fixed": "#261900",
+                    "inverse-primary": "#ffb3b5",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3b5",
+                    "on-primary-fixed-variant": "#7f2831"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "32px",
+                    "margin-edge": "64px",
+                    "container-max-width": "1280px",
+                    "section-padding": "128px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "label-caps": ["Work Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "display-lg": ["Noto Serif"],
+                    "body-lg": ["Work Sans"],
+                    "headline-md": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .decorative-divider {
+            position: relative;
+            height: 1px;
+            background: rgba(120, 90, 26, 0.2);
+            width: 100%;
+            margin: 4rem 0;
+        }
+        .decorative-divider::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fcf9f8;
+            padding: 0 1rem;
+            color: #775a19;
+            font-size: 0.75rem;
+        }
+        .gallery-frame {
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.04);
+        }
+        /* Width constraint for wide-mobile/small-tablet feel */
+        .page-container {
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #fcf9f8;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #f3f0ef; /* Subtly different background to frame the center container */
+    }
+  </style>
+</head>
+<body class="bg-surface-container text-on-background font-body-md">
+<div class="page-container shadow-2xl min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#FDFCFB] dark:bg-stone-950 border-b border-yellow-600/20 sticky top-0 z-50">
+<div class="flex justify-between items-center px-8 h-24">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-900" style="font-variation-settings: 'FILL' 0;">castle</span>
+<span class="text-xl font-serif font-bold text-red-900 uppercase tracking-widest">Royal Heritage</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-label-caps text-[12px] uppercase tracking-widest scale-100 hover:scale-[1.01] transition-transform">
+                Book
+            </button>
+</div>
+</header>
+<main class="flex-1 bg-background px-8 pt-12">
+<!-- Hero Section -->
+<section class="mb-20">
+<p class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Est. 1422</p>
+<h1 class="font-display-lg text-[42px] leading-[48px] text-primary mb-6">The Majesty of the Northern Spire</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                    A testament to six centuries of architectural evolution, the Royal Palace stands as the crowning jewel of our heritage.
+                </p>
+<div class="aspect-[4/5] overflow-hidden gallery-frame border border-outline-variant/30">
+<img alt="Historic Palace Façade" class="w-full h-full object-cover" data-alt="Detailed exterior view of a historic stone palace with tall spires and intricate carvings under a soft overcast sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdPmUdYuBGNaa3Jywn2U6clcoq_6pb0TODyLqUCLWkkMMIlnx-o7XfUXcEDsTXGBat-8t2zJPEexyrfBq-OI2ARWhuI8A4EoFXH24PZoqrkKcA4pzM2NvyXufxNYwMvGTjUTJ4PljLqFc8gsc9FuxHpRh4POHYwu2TbyJEzsm5IrL3uYqVFhV-PU63c2kioaXkMvL5IoqpFYHkVxktFOn40iBudOrRtszRM8nTw8rLONadspxk4r9vv_ZruZi1jSZNAer-CpXo9lCr"/>
+</div>
+</section>
+<div class="decorative-divider"></div>
+<!-- Architectural Bento Grid -->
+<section class="mb-20">
+<div class="mb-12">
+<h2 class="font-headline-lg text-[32px] leading-[40px] text-primary mb-4 text-center">Architectural Mastery</h2>
+<p class="font-body-md text-body-md text-center text-on-surface-variant">
+                    From the Gothic foundations to the Baroque refinements, explore the structural heart.
+                </p>
+</div>
+<div class="flex flex-col gap-8">
+<!-- Main Card -->
+<div class="bg-surface-container-low border-t border-secondary p-8 flex flex-col">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">architecture</span>
+<h3 class="font-headline-md text-2xl text-primary mb-4">The Grand Gallery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        A masterpiece of vaulted ceilings and hand-carved oak panels, stretching 200 feet.
+                    </p>
+<div class="aspect-video overflow-hidden">
+<img alt="Grand Gallery Interior" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Interior of a long palace gallery with sunlight streaming through tall arched windows onto polished parquet floors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwATZOkEIqrSrnM1sR2_NhSHfQUBS6e_qPDtZBTG6fNcUzTaedz60kVRUUBN2QP1sUPSnn0QS0pfOwPKz-uAlIIM8bMUIsKGoXSZXEfL7117k5QnEYNZ8vMi8sYImIicFv3EmKg32K-_dO_3ZHgRSjZSLVX9O422hIBScIQARHJ6xHOj7c-i5LQAoUJNfdXcsQUAyGQ79nAj_olCpaCnWghedCKCKoGm5u0vGkGOjT7HfvYa47bbUtB_88G2dhnAvtsJZqczap-SQ-"/>
+</div>
+</div>
+<!-- Foundation Info -->
+<div class="bg-surface-container-lowest border-t border-secondary p-8">
+<h4 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">The Foundation</h4>
+<p class="font-body-md text-body-md mb-6">The original limestone blocks were quarried from the neighboring Royal Valley.</p>
+<img alt="Limestone texture" class="w-full h-32 object-cover" data-alt="Close-up of weathered historic limestone masonry with subtle golden moss and intricate texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKr4JbvjbqvaHpY8wGH7BGta1CltpRfEi4u1bc1m-DRncoxAMDllOLnRmfk94qkCR6nvpUSEjhmosXFptsDvOtcUR2-ey8uNeRxo6UwWNNLQehS8YcUhw_x5phdg6X_FDSvpe_wIxgtVR7xu7aKjWv2sJuX1SOYpKZq5XzJipIv6DLsRqAiLq1Kb7Q74ikHA6DQbITw2O5DXnwEb8hL4C4V0kJP6GBkdWsDU9gGHOQHNAjVPSQOGon1DyZ_QSgrJ6lxtjYcGeN60BT"/>
+</div>
+<!-- Subterranean Info -->
+<div class="bg-primary text-on-primary p-8">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-4 uppercase">Hidden Vaults</h4>
+<p class="font-body-md text-body-md text-on-primary/80">Subterranean archive containing over 40,000 documents detailing every royal decree.</p>
+<div class="mt-8 flex justify-end">
+<span class="material-symbols-outlined text-4xl text-primary-fixed">key</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="mb-20 py-16 bg-stone-100/50 -mx-8 px-8">
+<h2 class="font-headline-lg text-[32px] text-primary mb-12">Chronology of Power</h2>
+<div class="space-y-12 relative border-l border-secondary/30 ml-4 pl-8">
+<!-- Timeline Item 1 -->
+<div class="relative group">
+<div class="absolute -left-[37px] top-2 w-2 h-2 bg-secondary rounded-full group-hover:scale-150 transition-transform"></div>
+<span class="font-display-lg text-2xl text-secondary block mb-2">1422</span>
+<h3 class="font-headline-md text-xl text-primary mb-4">The Foundation Stone</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">King Alaric III commissions the initial structure as a defensive fortification.</p>
+<img alt="Ancient Scroll" class="w-full h-40 object-cover border border-outline-variant/30" data-alt="A vintage weathered architectural parchment drawing showing the original floorplan of a medieval fortress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV6TaJ5ZltuXQZrX3r42erRfSHu4vaHJU9O3v-bUxpd2xVyEUJjDNj8kwwxPZtWnohUQK23sG7IRMiaQgHELKXQdTA73rNmPkx42ipLoep7gxww1vJl4kTrNJvL4x1XG-DdHklR2QcDigwVbpcUxBEZR39MaST_4kHAR_CP13txTGbM7Pv1HT0Mg2K0K04sR3AR74nYHQChRTGmOHrcjIiuuontO9cmE7ruT4xya0iPniL0sjChilelCxoYd8VSyrmevgFZ-Urg2L-"/>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative group">
+<div class="absolute -left-[37px] top-2 w-2 h-2 bg-secondary rounded-full group-hover:scale-150 transition-transform"></div>
+<span class="font-display-lg text-2xl text-secondary block mb-2">1745</span>
+<h3 class="font-headline-md text-xl text-primary mb-4">The Baroque Renaissance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Queen Eleanor invites Italian architects to transform the fortress into a majestic palace.</p>
+<img alt="Palace Garden" class="w-full h-40 object-cover border border-outline-variant/30" data-alt="Lush baroque gardens with geometric hedge patterns and a white marble fountain at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANcFuJBGoMZdkg4gpihFZX0cBhL4G3dQjdjx1J9FDd1uR03QzBgCCgefzYOcDbCcz4UksG-ibZjo3wJPzyEYGmVTG1jhuvKpJTZwnJ1cSzPhel-aowMtXJ4Vd44QNKBfe01OWLpRRr94IXPMwqnoVfLm9CFEf4bO-wA61cSyFJHxdOXlGcblWhEit-LdHpcdfzOM9-Gf54xcWWM8kR8MFHJ0k9zs8sGrZu90jUETN3I-jwZGLLf1PW8uejBHmP7cPBpRyYhX4wQ8QK"/>
+</div>
+</div>
+</section>
+<!-- Royal Residents Section -->
+<section class="mb-20">
+<div class="mb-10">
+<h2 class="font-headline-lg text-[32px] text-primary mb-4">Notable Residents</h2>
+<p class="font-body-lg text-body-md text-on-surface-variant">Figures who shaped the course of continental history.</p>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<!-- Resident 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 bg-surface-container-high relative">
+<img alt="Portrait" class="w-full h-full object-cover" data-alt="Oil painting portrait of a stern 15th century king in velvet robes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-QW-ZHk7latOGeiadh7rnjEim-oB3bEJbD9ABYdifUhcUwL2KTa_hHDEJaPr1gWR28tn6yklItqkFkLX5RWbrkMWgAfHPY2EW0dS_CI8j_GDpG2kuCwO7jQpYK4nZBfDkUqrjpBucUEJ5zrNIfh9-UKckYOtCq87_bVU__-80_5rCTp5tM0xBvVVIs86OTY6Ellr6XZ8FKJCXqD76baz5AAz5psLviI8RNmmXp_PY_aVbwuWvtJB_SaqTb1Hm4_rS9G_n4C5COBk9"/>
+</div>
+<h4 class="font-headline-md text-lg text-primary mb-1">Alaric III</h4>
+<p class="font-label-caps text-[10px] text-secondary uppercase">Founder</p>
+</div>
+<!-- Resident 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 bg-surface-container-high relative">
+<img alt="Portrait" class="w-full h-full object-cover" data-alt="Painting of an elegant 18th century queen in a blue silk gown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm-2cgp5KQVGDhHck2B46W2IxkuqFLHSDgkO3p5951quAmz0wxPonajW8JJ3zz4_nAJ4IWR9UZhV1PXE70NKVhSUWjuYzJtxGT-wuYfxKDFAnZmHz8I12oIvWKH1Qz55AsKWAlqITBxO2OvInCS04dtNuy6Kfci6Jwu4YesKtSagUkS4g1caoHyIbrNhD4oMJNdogi0lMoERHhCCHrb-wsKtEjM1j4g5QlktHzqNhjlmEk0yWfTXS6pdT26TlsuQwfw-95D0Js-qIR"/>
+</div>
+<h4 class="font-headline-md text-lg text-primary mb-1">Eleanor</h4>
+<p class="font-label-caps text-[10px] text-secondary uppercase">Patron</p>
+</div>
+</div>
+<button class="w-full mt-8 border border-secondary px-6 py-3 font-label-caps text-label-caps text-secondary uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all">View All Profiles</button>
+</section>
+<!-- Newsletter -->
+<section class="bg-primary-container p-10 flex flex-col items-center text-center -mx-8">
+<span class="material-symbols-outlined text-on-primary-container text-4xl mb-4">history_edu</span>
+<h2 class="font-headline-lg text-2xl text-on-primary-container mb-4">Access the Archives</h2>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-8">Join our Heritage Council for exclusive digital access to private archives.</p>
+<form class="flex flex-col gap-4 w-full">
+<input class="bg-transparent border-b-2 border-on-primary-container/40 text-on-primary-container placeholder:text-on-primary-container/40 py-2 focus:outline-none focus:border-on-primary-container font-body-md text-center" placeholder="Email Address" type="email"/>
+<button class="bg-secondary text-on-secondary px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:brightness-110 transition-all">Join Council</button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-yellow-600/10 py-12 px-8 flex flex-col items-center text-center gap-6">
+<div class="text-lg font-serif text-stone-800 dark:text-stone-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-red-900">castle</span>
+                Royal Heritage
+            </div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+<a class="text-stone-500 font-serif text-[10px] uppercase tracking-wider hover:text-yellow-700" href="#">History</a>
+<a class="text-stone-500 font-serif text-[10px] uppercase tracking-wider hover:text-yellow-700" href="#">Visitor Info</a>
+<a class="text-stone-500 font-serif text-[10px] uppercase tracking-wider hover:text-yellow-700" href="#">Contact</a>
+</div>
+<p class="font-serif text-[10px] uppercase tracking-widest text-stone-500 opacity-60">
+                © 2024 Heritage Council
+            </p>
+</footer>
+</div>
+</body></html>
